@@ -9,7 +9,7 @@
   <body>
     <main class="shell legal">
       <nav class="nav">
-        <a class="brand" href="./index.html"><span class="mark">R</span><span>RoutineOS</span></a>
+        <a class="brand" href="/"><span class="mark">R</span><span>RoutineOS</span></a>
         <div class="links">
           <a href="./privacy.html">Privacy</a>
           <a href="./terms.html">Terms</a>
@@ -17,7 +17,7 @@
       </nav>
 
       <h1>Privacy Policy</h1>
-      <p class="updated">Last updated: August 27, 2026</p>
+      <p class="updated">Last updated: September 18, 2026</p>
 
       <h2>Overview</h2>
       <p>
@@ -28,8 +28,8 @@
 
       <h2>Information We Collect</h2>
       <p>
-        When you sign in with Google through Supabase Auth, we receive basic account information
-        such as your name, email address, and Google profile identifier. The app may also store
+        When you sign in using an email code through Supabase Auth, we use your email address
+        and account identifier. You can optionally add a name and photo. The app may also store
         your routine templates, daily plans, block notes, selected YouTube playlist metadata,
         completion history, app settings, and sync timestamps.
       </p>
@@ -37,7 +37,7 @@
       <h2>How We Use Information</h2>
       <p>
         Data is used to authenticate your account, save your routine information, restore your
-        plans across sessions, show progress inside the app, and provide local notifications.
+        plans across sessions, show progress inside the app, and provide local and push notifications.
       </p>
 
       <h2>YouTube Data</h2>
@@ -50,16 +50,23 @@
       <h2>Storage</h2>
       <p>
         RoutineOS is local-first. Data is stored on your device for fast access and may be synced
-        to Supabase when you sign in or manually sync. Supabase is used for account-based backup
-        and retrieval.
+        to Supabase. Automatic backup runs every five minutes while online and the app is active;
+        manual backup is also available. Supabase is used for account-based backup and retrieval.
       </p>
 
       <h2>Data Sharing</h2>
       <p>
         We do not sell your personal data. Data is shared only with service providers required to
         operate the app, such as Supabase for authentication/database storage and Google/YouTube
-        for OAuth and YouTube API access.
+        for maps, place search, geocoding and YouTube API access. Expo Push Service and Firebase
+        Cloud Messaging process push tokens and notification payloads to deliver alerts.
       </p>
+
+      <h2>Locations and Notifications</h2>
+      <p>When you save a place, its name, address, coordinates and reminder tasks are stored.
+        With permission, background location detects entry and exit from saved places. Searches
+        and map services may send location-related queries to Google. Notification tokens and
+        scheduled alert data are stored for delivery, including while the app is in the background.</p>
 
       <h2>Contact</h2>
       <p>

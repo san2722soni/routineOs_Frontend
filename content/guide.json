@@ -1,0 +1,74 @@
+[
+  {
+    "section":"START HERE", "title":"A little structure. A clearer day.",
+    "intro":"You do not need a perfect routine. Start with one part of your life and two or three activities.",
+    "shots":[["welcome/welcome_1.png","sgin_in.jpg","Sign in with an email code"]],
+    "why":"RoutineOS separates deciding from doing. Set up the reusable parts once, prepare a specific day, then follow it without rebuilding your schedule.",
+    "steps":[["Sign in","Enter your email, request a code, then enter the six-digit code from your inbox."],["Start in Library","Create an area, then a routine. Videos are optional; ordinary tasks work too."],["Prepare and follow a day","Use Plan to choose outcomes, then lock the day. Today becomes your next-step screen."]],
+    "example":"Study is an AREA. My Weekday is a ROUTINE. Finish lesson 3 is part of today's PLAN. TODAY tells you when to do it.",
+    "next":"Start with Areas on the next page.", "diagram":["AREA / Study","ROUTINE / My Weekday","PLAN / Finish lesson 3","TODAY / Follow through"]
+  },
+  {
+    "section":"LIBRARY / AREAS", "title":"Give each priority a home.",
+    "intro":"An area is simply a name and color for a part of your life. It is not another task to complete.",
+    "shots":[["library/library_2.png","libraryr_area.jpg","Library > Areas: your life, grouped"]],
+    "why":"Areas keep related activities and learning resources together. You can recognize Study, Work or Training at a glance instead of reading an unorganized list.",
+    "steps":[["Create an area","Open Library > Areas, tap New, choose a short name and a color, then save."],["Use it in activities","When making a routine, assign each activity to the area it belongs to."],["Add resources if useful","Attach videos or playlists to an area. You can keep multiple courses in the same area."]],
+    "example":"Create Study in blue. Put DSA practice and JavaScript learning in Study. Both can use different courses without needing separate areas.",
+    "next":"Next: give these activities times in a routine.", "diagram":["STUDY / DSA + JavaScript","WORK / Client project","TRAINING / Gym + karate","LIFE / Errands + chores"]
+  },
+  {
+    "section":"LIBRARY / ROUTINES", "title":"Build a day you can reuse.",
+    "intro":"A routine is a reusable schedule. An activity block is just one thing to do, with a start and end time.",
+    "shots":[["library/library_1.png","library_routine.jpg","Choose a saved routine"],["routine/routine_1.png","edit_routine.jpg","Edit its timed activities"]],
+    "why":"If your weekdays look similar, you should not have to enter the same schedule every morning. A routine supplies the shape; Plan adds that day's specifics.",
+    "steps":[["Name it and choose weekdays","Open Library > Routines > New. Use a name like My Weekday and select the days it fits."],["Add activity blocks","Set each title, time and area. Choose a default course when relevant, then save the routine."],["Reuse or adapt","Copy another routine when making a variation. Edit routines for future plans; an already locked day stays fixed."]],
+    "example":"My Weekday: 9-10 Study, 10-11 Work, 5-6 Training. A Weekend routine can have a different start time and fewer activities.",
+    "next":"Next: add optional learning videos, or go straight to Plan."
+  },
+  {
+    "section":"LIBRARY / VIDEOS", "title":"Turn a long course into next steps.",
+    "intro":"Keep your courses with their area, then choose only the lessons you need for a particular activity.",
+    "shots":[["library/library_3.png","library_videos_list.jpg","Your saved courses and playlists"],["library/library_4.png","library_videos.jpg","A long video split into chunks"]],
+    "why":"A saved link is easy to forget. A lesson attached to a planned activity gives you a specific place to continue, without hunting through tabs.",
+    "steps":[["Add a YouTube link","Open Library > Videos > Add. Select an area and paste a public video or playlist link."],["Load the lessons","Load the video information. For a long video, choose a chunk length; browse playlists as individual lessons."],["Choose what belongs today","In Plan, choose the course and select its lessons or chunks. An area can contain several playlists and videos."]],
+    "example":"Add a three-hour SQL video to Study. Split it into 30-minute chunks. Select the first chunk for today's study block; choose the next one when planning another day.",
+    "next":"Videos are optional. Gym, errands and work blocks do not need them."
+  },
+  {
+    "section":"PLAN", "title":"Decide what a good day looks like.",
+    "intro":"A routine gives you the times. A plan adds the output, notes and chosen lessons for one particular day.",
+    "shots":[["plan/plan_1.png","plan.jpg","Select a routine and prepare a block"],["plan/plan_2.png",null,"Review activities and finalize the day"]],
+    "why":"Study is vague. Finish one lesson and solve two questions tells you what done means. Planning that detail now reduces decisions later.",
+    "steps":[["Check the date and routine","If today is unplanned, Plan prepares today; otherwise tomorrow. Check the weekday-matched routine or select another."],["Make each activity specific","Choose videos, write the output and add helpful notes. Finalize each block. Change titles, times and areas in the routine."],["Review, then lock","Review the activity count and planned hours. Complete the confirmation steps to lock the day and send it to Today."]],
+    "example":"Output: finish SQL chunk 1 and write five examples. Notes: use the practice database. Video: the first 30 minutes of the SQL course.",
+    "next":"Leave room for meals and rest. The 18-hour cap is a limit, not a target."
+  },
+  {
+    "section":"TODAY", "title":"Follow the day, one activity at a time.",
+    "intro":"This is your execution screen: the current activity, what comes next, and an honest record of what happened.",
+    "shots":[["today/today_1.png","today_up.jpg","Current activity and connected timeline"],["today/today_2.png","today_down.jpg","Your progress and finished day"]],
+    "why":"You already made the decisions in Plan. Today keeps the next action visible so you can spend your attention on doing it.",
+    "steps":[["Start with the current activity","Check the active block and its time. If the day is empty, tap Plan Today to prepare it first."],["Open Details when needed","Tap the activity or Details to see the full output, notes and selected video links. A video count keeps the main card compact."],["Record what happened","Mark done or skipped, and undo a mark if needed. After all activities are done, you can export the day's PDF report."]],
+    "example":"At 9:00, open Study, read your five-example output and play the chosen SQL chunk. Mark it done when finished. A missed activity does not erase the rest of your day.",
+    "next":"No streak to protect. Make the record useful, not perfect."
+  },
+  {
+    "section":"REMINDERS / LOCATIONS + TASKS", "title":"Remember the errand when you arrive.",
+    "intro":"Locations are saved places. Reminders are the things you want to do at those places.",
+    "shots":[["reminders/reminders_2.png",null,"Locations: places you return to"],["reminders/reminders_3.png",null,"Reminders: tasks attached to a place"]],
+    "why":"A shopping note cannot help if you forget to open it. An arrival reminder can bring the task back when you are near its saved place.",
+    "steps":[["Save a place","In Locations, tap Add location. Search, select a point on the map or use your position. Check the pin, name and radius, then save."],["Attach the task","In Reminders, add what you need to do and choose the saved place. Several tasks can belong to one location."],["Arrive, do it, tick it off","Allow notifications and background location in Settings. Unfinished tasks stay attached; repeat nudges are requested while you remain inside."]],
+    "example":"Save your supermarket, then add Buy milk. When arrival is detected, you get a nudge. Tick it off after buying it. Repeats stop after completion or a detected exit.",
+    "next":"Android can delay detection and repeats. Reopen after Force stop; review location and battery settings."
+  },
+  {
+    "section":"SETTINGS", "title":"Make it yours. Keep your work safe.",
+    "intro":"Choose how the app looks, how it alerts you and when to check your backup.",
+    "shots":[["settings/settings_1.png","settings.jpg","Profile, theme and notification preferences"],["settings/settings_2.png","settings_down.jpg","Location access and backup status"]],
+    "why":"The right permissions make reminders useful. A recent backup protects the routines and plans you have already spent time building.",
+    "steps":[["Choose your preferences","Set a name and photo, choose light or dark, and adjust notification sound and the start/end alert offsets."],["Set up the reminders you use","Allow notifications for alerts. Arrival reminders also need background location. Follow the Android setup guidance for your phone."],["Check your backup","Automatic backup runs every five minutes while online and active. Use Back Up Now before changing phones or uninstalling."]],
+    "example":"Prefer a heads-up? Set the start alert to 10 minutes before a block. Before replacing your phone, run Back Up Now and check its time, then sign in on the new phone.",
+    "next":"Saved data works locally. Cloud restore and push need internet. One active device is allowed per account."
+  }
+]

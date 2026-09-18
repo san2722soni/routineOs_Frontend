@@ -1,79 +1,109 @@
-import { ArrowDown, ArrowDownRight, ArrowRight, ArrowUpRight, Bell, Check, CheckCheck, Dumbbell, GraduationCap, Layers3, LockKeyhole, MapPin, Moon, Play, Radio, Sparkles, WifiOff, X } from 'lucide-react';
+import { ArrowDown, ArrowUpRight, Bell, BookOpen, Check, CheckCheck, Download, Layers3, LockKeyhole, MapPin, Sparkles, WifiOff } from 'lucide-react';
 import { Parallax } from '../components/parallax';
 import { Phone } from '../components/phone';
+import { ScreenTour } from '../components/screen-tour';
 import { SiteHeader } from '../components/site-header';
+import { StartupSplash } from '../components/startup-splash';
+import { getTourScreens, publicUrl } from '../lib/media';
+import { ApkDownload } from '../components/apk-download';
 
-const downloadUrl = process.env.NEXT_PUBLIC_APP_DOWNLOAD_URL;
-const audiences = [
-  { icon: GraduationCap, label: 'CAMPUS MODE', title: 'Less timetable.\nMore actual studying.', text: 'Keep lectures, deep work and your next study video together. Arrive at the library. Remember what you came to do.', tag: 'For the semester you actually finish.' },
-  { icon: Dumbbell, label: 'TRAINING MODE', title: 'Make room for reps.\nAnd recovery.', text: 'Build training into your routine. An 18-hour planning cap leaves at least six hours unplanned. Rest belongs in your system, too.', tag: 'Consistency includes taking a breath.' },
-  { icon: MapPin, label: 'REAL LIFE MODE', title: 'Your brain has\nenough tabs open.', text: 'Milk at the supermarket. A book at the library. Save a place, attach a reminder, and let arriving bring it back to you.', tag: 'Remember where it matters.' },
+const guideUrl = '/assets/guide/routineos-quick-guide.pdf';
+const faqs = [
+  ['Do I need to be good at planning?', 'No. Start with one area, like Study, and a routine with two or three activities. An area is just a label; a routine is a reusable schedule. Plan adds the specific goal for a day, and Today helps you follow it. Add more when it becomes useful.'],
+  ['Can I plan today, or only tomorrow?', 'Both. If today has no finalized plan, Plan prepares today. Once today is planned, it prepares tomorrow. The app picks a routine for that weekday, and you can choose a different one before finalizing.'],
+  ['What happens if my day does not go to plan?', 'Mark what you finished, leave a missed activity skipped, and undo a mark if you need to. There is no streak to lose. A locked plan stays fixed; edit your reusable routine for future days. The 18-hour planning cap leaves some time outside the schedule, but you choose how much rest to make room for.'],
+  ['Will reminders work with the app closed or offline?', 'Saved plans, places and tasks stay on your phone. Block start/end push alerts need internet and a synced locked plan. Arrival reminders need location access, including background access. They use push online with a local fallback if queuing fails; repeat reminders are local. Android can delay detection or repeats, especially offline or under battery restrictions. Keep the app in the background for reliability, and reopen it after Force stop.'],
+  ['Will it remind me again if a place task is unfinished?', 'The task stays attached to its place until you complete it. While the phone considers you inside the saved radius, it requests a repeat roughly every two minutes. Android may delay this; it is not an exact timer. Completion or a detected exit stops the repeats.'],
+  ['How do backup and changing phones work?', 'Changes save locally first. Automatic backup runs every five minutes while you are online and the app is active, and catches up when you return. Back Up Now is in Settings. Sign in to restore backed-up data. One device is active per account, so signing in on another phone signs out the previous one. Back up before uninstalling.'],
+  ['What do I need to get started?', 'An Android phone (Android 7 or later), your own email account, and internet for sign-in and setup. YouTube imports, place search, cloud backup and push alerts also need a connection. Phone settings affect notification delivery. This is an Android beta; iPhone is not currently offered.'],
 ];
-const differences = [
-  ['An endless list of things you should do', 'A finite day you can actually follow'],
-  ['Rebuilding the same plan every morning', 'Reusable routines. Decide once, repeat.'],
-  ['A broken streak feels like starting over', 'An honest record. Every day is a fresh day.'],
-  ['Reminders that only know what time it is', 'Reminders that know you reached a place'],
-];
+
 export default function HomePage() {
-  return <main id="top">
-    <a className="skip-link" href="#philosophy">Skip to content</a>
-    <SiteHeader downloadUrl={downloadUrl}/>
-    <section className="hero grid-surface">
-      <div className="hero-orbit" aria-hidden="true"/>
-      <div className="shell hero-layout">
-        <div className="hero-copy"><div className="eyebrow"><span className="live-dot"/> A LITTLE STRUCTURE. A LOT MORE LIFE.</div>
-          <h1>Stop<br/><span className="muted-word">replanning.</span><br/>Start <span className="accent">executing.</span></h1>
-          <p>The anti-productivity productivity app.<br/>Build your routine. Lock the day. Get on with living it.</p>
-          <div className="hero-actions"><a href={downloadUrl || '#product'} className="button">{downloadUrl ? 'Get RoutineOS' : 'Explore RoutineOS'}<ArrowUpRight size={18}/></a><a className="text-link" href="#philosophy">Find your rhythm <ArrowDown size={16}/></a></div>
-          <div className="hero-principles"><span><Check size={13}/> No streak guilt</span><span><Check size={13}/> Local first</span><span><Check size={13}/> Real life ready</span></div>
-        </div>
-        <div className="hero-product"><div className="orbit-label orbit-label-top">YOUR DAY. WITH DIRECTION.</div>
-          <Parallax distance={75} className="hero-back-phone"><Phone src="plan.jpg" alt="RoutineOS Plan screen with a prepared daily routine"/></Parallax>
-          <Parallax distance={-40} className="hero-main-phone"><Phone src="today_up.jpg" alt="RoutineOS Today screen showing the day's activities and current progress" priority/></Parallax>
-          <Parallax distance={25} className="floating-note"><div className="note-icon"><LockKeyhole size={17}/></div><div><strong>Decided last night.</strong><span>Doing it today.</span></div><CheckCheck size={18}/></Parallax>
-          <span className="product-coordinate">01 / THE EXECUTION LAYER</span>
-        </div>
-      </div>
-      <div className="shell hero-bottom"><span>DESIGNED FOR YOUR LIFE, NOT YOUR STREAK.</span><a href="#philosophy">SCROLL TO BREAK THE LOOP <ArrowDownRight size={17}/></a></div>
-    </section>
-    <div className="statement-strip"><span>BUILD THE ROUTINE</span><Sparkles/><span>LOCK THE DAY</span><Sparkles/><span>LIVE YOUR LIFE</span><Sparkles/><span className="strip-extra">REPEAT, WITHOUT THE GUILT</span></div>
-    <section id="philosophy" className="shell section philosophy">
-      <div className="section-meta"><span>01 / THE PHILOSOPHY</span><span>LESS FRICTION. MORE FOLLOW-THROUGH.</span></div>
-      <div className="philosophy-grid"><h2>You don’t need<br/>a better to-do list.<br/><span className="muted-word">You need to stop<br/>rewriting it.</span></h2><div className="manifesto"><span className="asterisk" aria-hidden="true">✳</span><p>You know the loop. Download an app. Build the perfect system. Spend more time planning your life than living it.</p><p>RoutineOS closes that loop. Give tomorrow a shape tonight. When today arrives, the decisions are already made.</p><p className="manifesto-end">A little less “what should I do?”<br/>A lot more <span>“let’s do this.”</span></p></div></div>
-      <div className="workflow">{[{icon: Layers3, n: '01', title: 'Build it once.', text: 'Your study blocks, training, work and downtime. Make a routine that fits your actual life.'}, {icon: LockKeyhole, n: '02', title: 'Lock it in.', text: 'Pick your videos. Write the goal. Give tomorrow a clear beginning and an end.'}, {icon: Play, n: '03', title: 'Show up.', text: 'Follow the day as it happens. Mark what you did. Leave the guilt out of it.'}].map(({icon: Icon,n,title,text}) => <article key={n}><div className="workflow-top"><Icon size={24}/><span>{n}</span></div><h3>{title}</h3><p>{text}</p></article>)}</div>
-    </section>
-    <section id="product" className="product-section grid-surface">
-      <div className="shell section"><div className="section-meta"><span>02 / LESS APP. MORE ACTION.</span><span>ACTUAL SCREENS. ACTUAL PURPOSE.</span></div><h2>Everything has a place.<br/><span className="muted-word">Including you.</span></h2>
-        <div className="feature-stage"><div className="feature-copy"><span className="feature-number">01 — TODAY</span><h3>Your day.<br/>Already decided.</h3><p>Open the app and see what matters now. A live timeline, your current block, and an honest view of what got done.</p><ul><li><Radio/> Follows the clock, not your last tap</li><li><CheckCheck/> Done, skipped, and a fresh start tomorrow</li><li><Moon/> Progress without the streak pressure</li></ul><span className="hand-note">Less negotiating with yourself. ↗</span></div><div className="feature-visual today-visual"><div className="feature-circle"/><Parallax distance={55}><Phone src="today_up.jpg" alt="Today: live activity blocks and completion progress"/></Parallax><span className="visual-tag"><span className="live-dot"/> THIS IS YOUR NOW</span></div></div>
-        <div className="feature-stage reverse"><div className="feature-copy"><span className="feature-number">02 — PLAN</span><h3>Tomorrow called.<br/>You’ve got a plan.</h3><p>Start from a routine. Choose the videos you’ll work through. Add a goal and your notes. Then lock it in and close the app.</p><ul><li><LockKeyhole/> Structure that stays put</li><li><Play/> Your learning, attached to the block</li><li><Moon/> Up to 18 planned hours. Leave room for life.</li></ul></div><div className="feature-visual plan-visual"><div className="feature-circle"/><Parallax distance={-45}><Phone src="plan.jpg" alt="Plan: prepare tomorrow using a reusable routine"/></Parallax><span className="visual-tag"><LockKeyhole size={14}/> FUTURE YOU SAYS THANKS</span></div></div>
-        <div className="small-showcases"><article><div className="small-shot"><Parallax distance={30}><Phone src="library_routine.jpg" alt="Library: reusable routines"/></Parallax></div><span className="feature-number">03 — LIBRARY</span><h3>Your system, on repeat.</h3><p>Routines, areas and video lists. Build once and keep the parts that work.</p></article><article><div className="small-shot"><Parallax distance={-25}><Phone src="today_down.jpg" alt="Today: completed activities and daily progress"/></Parallax></div><span className="feature-number">04 — REMINDERS</span><h3>See what actually happened.</h3><p>Save a location and what you need to do there. It stays on your list until it’s done.</p></article><article><div className="small-shot"><Parallax distance={35}><Phone src="settings.jpg" alt="Settings: profile, appearance and reminders"/></Parallax></div><span className="feature-number">05 — YOUR PREFERENCES</span><h3>Make yourself at home.</h3><p>Your theme, your notifications, your backup. A system you can make your own.</p></article></div>
-      </div>
-    </section>
-    <section className="shell section screen-gallery" aria-labelledby="gallery-title">
-      <div className="section-meta"><span>INSIDE YOUR EVERYDAY SYSTEM</span><span>SCROLL THROUGH THE DETAILS</span></div>
-      <h2 id="gallery-title">Your routine.<br/><span className="muted-word">Down to the little things.</span></h2>
-      <p className="gallery-intro">From your first sign-in to the videos in your next block. Everything belongs to the same simple system.</p>
-      <div className="screen-rail" tabIndex={0} role="region" aria-label="App screenshot gallery; scroll horizontally for all six screens">
-        {[
-          ['sgin_in.jpg', '01 / GET STARTED', 'A place to begin.'],
-          ['libraryr_area.jpg', '02 / YOUR AREAS', 'Give your priorities a home.'],
-          ['edit_routine.jpg', '03 / ROUTINE EDITOR', 'Build a day that fits.'],
-          ['library_videos.jpg', '04 / VIDEO LIBRARY', 'Keep your learning together.'],
-          ['library_videos_list.jpg', '05 / YOUR NEXT LESSON', 'Pick up where you left off.'],
-          ['settings_down.jpg', '06 / MORE PREFERENCES', 'The details, your way.'],
-        ].map(([src, label, caption]) => <figure key={src}><div className="gallery-phone"><Phone src={src} alt={caption}/></div><figcaption><span className="feature-number">{label}</span><h3>{caption}</h3></figcaption></figure>)}
-      </div>
-    </section>
-    <section id="life" className="shell section"><div className="section-meta"><span>03 / BUILT FOR THE IN-BETWEEN</span><span>YOU ARE MORE THAN YOUR TASK LIST.</span></div><h2>For the semester.<br/>The next set.<br/><span className="accent">And everything after.</span></h2><div className="audience-grid">{audiences.map(({icon: Icon,label,title,text,tag}) => <article key={label}><Icon size={28}/><span className="audience-label">{label}</span><h3>{title}</h3><p>{text}</p><span className="audience-tag">{tag}</span></article>)}</div></section>
-    <section className="difference-section"><div className="shell section"><div className="section-meta"><span>04 / A DIFFERENT KIND OF PRODUCTIVITY</span></div><div className="comparison-heading"><h2>Less managing tasks.<br/><span className="muted-word">More doing your thing.</span></h2><p>A different philosophy for the days<br/>that don’t go perfectly. So, most days.</p></div><div className="comparison"><div className="comparison-labels"><span>THE TO-DO LIST LOOP</span><span className="accent">THE ROUTINEOS WAY ↗</span></div>{differences.map(([before,after]) => <div className="comparison-row" key={before}><span><X size={16}/>{before}</span><span><Check size={16}/>{after}</span></div>)}</div><div className="offline-note"><WifiOff size={20}/><p><strong>Life doesn’t wait for Wi-Fi.</strong> Your routine and saved reminders live on your phone. Cloud backup happens when you reconnect.</p></div></div></section>
-    <section className="shell section faq-section"><div><span className="feature-number">A FEW THINGS, BEFORE YOU GO</span><h2>Good questions.</h2></div><div className="faq-list">{[
-      ['What happens if I miss a block?', 'It becomes part of an honest record. Mark it done if you finished, or leave it skipped. There is no streak to protect and no need to restart your entire system.'],
-      ['Can I change a locked plan?', 'Prepare your goals, notes and video choices before you lock the plan. The locked structure stays fixed so Today can focus on execution. Edit reusable routines in Library for future days.'],
-      ['Do place reminders work offline?', 'Saved places and tasks are stored on your phone, and arrival alerts are local notifications. Searching for a new place needs a connection. Arrival detection depends on your phone’s location services, background permission and battery settings; offline detection can be less reliable.'],
-      ['Why an 18-hour planning cap?', 'Because filling every minute is not the goal. RoutineOS caps planned blocks at 18 hours, leaving room outside the schedule. Choose more rest whenever you need it.'],
-    ].map(([q,a]) => <details key={q}><summary>{q}<span>+</span></summary><p>{a}</p></details>)}</div></section>
-    <section className="final-cta grid-surface"><div className="shell"><span className="eyebrow"><span className="live-dot"/> YOUR NEXT DAY STARTS HERE</span><h2>A routine for life.<br/><span className="accent">Not a life of routines.</span></h2><p>Decide what matters. Give it a place. Go live it.</p><a href={downloadUrl || '#product'} className="button">{downloadUrl ? 'Get RoutineOS' : 'Take a look inside'}<ArrowUpRight size={19}/></a><span className="cta-footnote">LESS GUILT. MORE FOLLOW-THROUGH.</span></div></section>
-    <footer className="shell footer"><a href="#top" className="wordmark"><span className="brand-icon">r.</span>routine<span className="wordmark-os">OS</span></a><span>Built for imperfect people with good intentions.</span><div><a href="/legal/privacy.html">Privacy</a><a href="/legal/terms.html">Terms</a><a href="#top" aria-label="Back to top"><ArrowUpRight size={18}/></a></div></footer>
-  </main>;
+  const screens = getTourScreens();
+  const today = screens.find(screen => screen.id === 'today')!.captures[0];
+  const plan = screens.find(screen => screen.id === 'plan')!.captures[0];
+  const map = screens.find(screen => screen.id === 'reminders')!.captures[1];
+  const downloadUrl = publicUrl(process.env.NEXT_PUBLIC_APP_DOWNLOAD_URL);
+
+  return <>
+    <StartupSplash/>
+    <div id="site-content">
+      <a className="skip-link" href="#how-it-works">Skip to content</a>
+      <SiteHeader downloadUrl={downloadUrl}/>
+      <main id="top">
+        <section className="hero grid-surface" aria-labelledby="hero-title">
+          <div className="hero-orbit" aria-hidden="true"/>
+          <div className="shell hero-layout">
+            <div className="hero-copy">
+              <div className="eyebrow"><span className="live-dot"/> A LITTLE STRUCTURE. A LOT MORE LIFE.</div>
+              <h1 id="hero-title">Stop<br/><span className="muted-word">replanning.</span><br/>Start <span className="accent">executing.</span></h1>
+              <p>Your study, work, training and everyday errands.<br/>One reusable routine. A clear next step. A reminder when you get there.</p>
+              <div className="hero-actions">
+                <ApkDownload url={downloadUrl}/>
+                <a className="text-link" href={guideUrl} download>Get the quick guide <Download size={15}/></a>
+              </div>
+              <div className="hero-principles"><span><Check size={13}/> No streak guilt</span><span><Check size={13}/> Local first</span><span><Check size={13}/> Android beta</span></div>
+            </div>
+            <div className="hero-product">
+              <div className="orbit-label">YOUR DAY. WITH DIRECTION.</div>
+              <Parallax distance={45} className="hero-back-phone"><Phone src={plan.src} alt={plan.alt}/></Parallax>
+              <Parallax distance={-25} className="hero-main-phone"><Phone src={today.src} alt={today.alt} priority/></Parallax>
+              <Parallax distance={18} className="floating-note"><div className="note-icon"><LockKeyhole size={17}/></div><div><strong>Decided once.</strong><span>Ready when you are.</span></div><CheckCheck size={18}/></Parallax>
+              <span className="product-coordinate">A ROUTINE FOR LIFE.</span>
+            </div>
+          </div>
+          <div className="shell hero-bottom"><span>FOR IMPERFECT DAYS AND GOOD INTENTIONS.</span><a href="#how-it-works">FIND YOUR RHYTHM <ArrowDown size={15}/></a></div>
+        </section>
+
+        <div className="statement-strip" aria-hidden="true"><span>BUILD THE ROUTINE</span><Sparkles size={15}/><span>LOCK THE DAY</span><Sparkles size={15}/><span>LIVE YOUR LIFE</span></div>
+
+        <section id="how-it-works" className="shell section" aria-labelledby="how-title">
+          <div className="section-meta"><span>01 / MAKE IT SIMPLE</span><span>STUDY. TRAINING. WORK. LIFE.</span></div>
+          <div className="section-heading"><h2 id="how-title">Less mental juggling.<br/><span className="muted-word">More following through.</span></h2><p>You already know what matters. RoutineOS helps you stop rebuilding the same plan, find the next lesson, and remember the errand at the right place.</p></div>
+          <div className="vocabulary-grid">
+            {[
+              ['01', 'Area', 'A part of your life.', 'Study', 'Give related activities one name and color.'],
+              ['02', 'Routine', 'A schedule you can reuse.', 'My weekday', 'Add activities and times. Pick the weekdays it fits.'],
+              ['03', 'Plan', 'One specific day.', 'Tuesday: finish lesson 3', 'Choose videos, add an output and notes, then finalize.'],
+              ['04', 'Today', 'The day you actually do.', '9:00: study time', 'Follow the timeline. Tick things off. Keep going.'],
+            ].map(([number, title, meaning, example, detail]) => <article key={number}><span className="step-number">{number}</span><h3>{title}</h3><p className="term-meaning">{meaning}</p><span className="example-chip">{example}</span><p>{detail}</p></article>)}
+          </div>
+          <p className="start-small"><Sparkles size={16}/><span>Start with <strong>one area and three activities.</strong> You can build the rest as you go.</span></p>
+        </section>
+
+        <section id="product" className="product-section grid-surface" aria-labelledby="tour-title">
+          <div className="shell section">
+            <div className="section-meta"><span>02 / TAKE A LOOK INSIDE</span><span>EVERY SCREEN. ONE SIMPLE SYSTEM.</span></div>
+            <div className="section-heading"><h2 id="tour-title">Everything has a place.<br/><span className="muted-word">Including your next step.</span></h2><p>Choose a screen to see what it does for you. The small numbered buttons show the details inside each screen.</p></div>
+            <ScreenTour screens={screens}/>
+          </div>
+        </section>
+
+        <section id="places" className="shell section location-section" aria-labelledby="places-title">
+          <div className="location-copy"><span className="feature-number">03 / A REMINDER WITH A PLACE</span><h2 id="places-title">The right nudge.<br/><span className="accent">Right where you need it.</span></h2>
+            <p>You get to the supermarket and forget the one thing you came for. Give that thought a place before you leave.</p>
+            <ol className="location-steps"><li><MapPin size={18}/><span><strong>Find it.</strong> Search, tap the map or use your position.</span></li><li><Layers3 size={18}/><span><strong>Save it.</strong> Pick a radius. Add “buy milk.”</span></li><li><Bell size={18}/><span><strong>Remember it.</strong> Get an arrival nudge; tick it off when done.</span></li></ol>
+            <p className="small-print">Allow background location and notifications in Settings. Android and battery settings can affect timing.</p>
+          </div>
+          <div className="location-visual"><div className="location-ring"/><Phone src={map.src} alt={map.alt} screen="reminders"/><div className="place-note"><span className="live-dot"/> SAVE THE PLACE. LET GO OF THE MENTAL NOTE.</div></div>
+        </section>
+
+        <section id="learn" className="learn-section" aria-labelledby="learn-title">
+          <div className="shell section">
+            <div className="section-meta"><span>04 / YOUR FIRST DAY STARTS HERE</span><span>YOUR PACE. YOUR FIRST STEP.</span></div>
+            <div className="learn-grid"><div className="learn-copy"><h2 id="learn-title">You don&apos;t need<br/><span className="muted-word">a perfect system.</span></h2><p>Start with one area and a few activities. The screenshots show you around; the short guide walks you from your first routine to your first locked day.</p>
+              <div className="download-actions"><ApkDownload url={downloadUrl}/></div>
+            </div>
+              <div className="guide-card"><BookOpen size={24}/><div><h3>Keep a little help handy.</h3><p>A short, illustrated guide. Every screen, explained in plain language.</p><a href={guideUrl} download className="text-link">Download the PDF guide <Download size={15}/></a></div></div>
+            </div>
+          </div>
+        </section>
+
+        <section className="shell section faq-section" aria-labelledby="faq-title"><div><span className="feature-number">THE EVERYDAY QUESTIONS</span><h2 id="faq-title">Good questions.</h2><div className="offline-note"><WifiOff size={21}/><p>Your saved day stays with you.<br/>Even when the signal doesn&apos;t.</p></div></div><div className="faq-list">{faqs.map(([question, answer]) => <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div></section>
+
+        <section className="final-cta grid-surface"><div className="shell"><span className="eyebrow">A LITTLE LESS “WHAT SHOULD I DO?”</span><h2>A routine for life.<br/><span className="accent">Not a life of routines.</span></h2><p>Make a small plan. Give it a real day. See how it feels.</p><div className="final-actions"><ApkDownload url={downloadUrl}/><a href={guideUrl} download className="text-link">Download guide <Download size={15}/></a></div></div></section>
+      </main>
+      <footer className="shell footer"><a href="#top" className="wordmark"><span className="brand-icon">r.</span>routine<span className="wordmark-os">OS</span></a><span>Built for imperfect people with good intentions.</span><div><a href="/legal/privacy.html">Privacy</a><a href="/legal/terms.html">Terms</a><a href={guideUrl} download>Guide</a><a href="#top" aria-label="Back to top"><ArrowUpRight size={17}/></a></div></footer>
+    </div>
+  </>;
 }

@@ -1,3 +1,23 @@
-node_modules
+# Dependencies and framework output
+node_modules/
+.next/
+out/
+*.tsbuildinfo
 
-.next
+# Local test/render artifacts (the guide in public/assets is tracked)
+tmp/
+output/
+
+# Local secrets and environment overrides
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Editor and OS files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp

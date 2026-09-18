@@ -1,0 +1,78 @@
+[
+  {
+    "id":"today", "label":"Today", "eyebrow":"LESS DECIDING. MORE DOING.",
+    "headline":"Know your next move.",
+    "description":"Your day is already laid out. Open Today, see what is happening now, and give your attention to one activity at a time.",
+    "steps":["Open your finalized day.","Tap an activity for its notes, goal and videos.","Mark it done or skipped. Undo if you need to."],
+    "benefits":["A live timeline keeps the next step visible.","Your output, notes and chosen lessons stay with the activity.","Completion is an honest record, without a streak to protect."],
+    "details":["Current and upcoming activity","Connected, numbered timeline","Done, skipped and undo controls","Full activity details and playable video links","Daily completion count and progress","Plan Today when you have not planned yet","PDF day report after all activities are done"],
+    "captures":[
+      {"path":"today/today_1.png","label":"Your next activity","alt":"Today with a current activity, video count and numbered timeline","fallback":"today_up.jpg","capture":"Top of Today: a realistic locked plan, current activity and the first timeline blocks."},
+      {"path":"today/today_2.png","label":"Your day at a glance","alt":"Lower Today timeline with completed and upcoming activities","fallback":"today_down.jpg","capture":"Scroll down Today. Show completed, skipped and pending activities with connected numbers."},
+      {"path":"today/today_3.png","label":"The details that matter","alt":"Activity details with an output, notes and selected videos","capture":"Open a study activity's details. Include a short output, useful notes and two selected videos. Hide the keyboard."}
+    ]
+  },
+  {
+    "id":"plan","label":"Plan","eyebrow":"MAKE THE DECISION ONCE.",
+    "headline":"Give your day a clear finish line.",
+    "description":"A routine gives you the shape. A plan adds the specifics: what you will finish, the notes you need, and the lessons you will actually watch.",
+    "steps":["Start with the routine matched to today's or tomorrow's weekday.","Choose videos, write an output and add notes for each activity.","Finalize the activities, review the summary and lock the day."],
+    "benefits":["Weekday matching saves rebuilding the same day.","A clear output turns 'study' into something you can finish.","Locking the plan ends the cycle of constant rearranging."],
+    "details":["Plans today first if today is unplanned, otherwise tomorrow","Automatic weekday routine selection or manual choice","Routine changes refresh unlocked drafts; manual reload is available","Choose a course and select individual lessons or chunks","Editable output and notes; routine controls time, title and area","Finalize one activity at a time","Hours and activity count before the three-step day confirmation","An 18-hour cap and overlap checks","Locked day appears in Today"],
+    "captures":[
+      {"path":"plan/plan_1.png","label":"Start from your routine","alt":"Plan with the date, selected routine and first activity","fallback":"plan.jpg","capture":"Top of Plan: target date, named routine, total planned time and one expanded activity."},
+      {"path":"plan/plan_2.png","label":"Choose your exact outcome","alt":"Plan activity with selected lessons, an output and notes","capture":"Scroll within the expanded study block to show selected lessons, a concrete output, notes and Finalize Block."}
+    ]
+  },
+  {
+    "id":"library","label":"Library","eyebrow":"BUILD ON WHAT ALREADY WORKS.",
+    "headline":"Keep the useful parts. Reuse them.",
+    "description":"Library is your collection of reusable building blocks. Areas group your life, routines shape your week, and videos keep your learning in one place.",
+    "steps":["Add a few areas, such as Study, Work and Training.","Create a routine with timed activities and choose its weekdays.","Optionally add YouTube courses to use in your plans."],
+    "benefits":["A color and a name make each priority easy to recognize.","Copy an existing routine and change only what is different.","Turn a long course into manageable lessons or video chunks."],
+    "details":["Search, create, edit and delete routines","Assign routines to weekdays","Copy activities from another routine","Set each activity's time, title, area and default course","Named, color-coded areas","Multiple playlists and individual videos per area","Paste YouTube links and load public lesson metadata","Split long videos into chunks of your chosen length","Browse lessons in pages and keep completion progress","Copy links, reload courses and clear imported items","Choose the relevant course when an area has several"],
+    "captures":[
+      {"path":"library/library_1.png","label":"Reusable routines","alt":"Routines with weekday labels and activity counts","fallback":"library_routine.jpg","capture":"Routines tab with two named routines, their weekdays and activity counts."},
+      {"path":"library/library_2.png","label":"Your areas","alt":"Color-coded Study, Work and Training areas","fallback":"libraryr_area.jpg","capture":"Areas tab with 4-6 clearly named, differently colored areas. Avoid empty or duplicate test items."},
+      {"path":"library/library_3.png","label":"Your courses","alt":"Video library with multiple courses grouped into areas","fallback":"library_videos.jpg","capture":"Videos tab with a playlist and a long video; ideally two courses in the same area."},
+      {"path":"library/library_4.png","label":"Small, finishable lessons","alt":"Expanded course with individual lessons or time-based chunks","fallback":"library_videos_list.jpg","capture":"Expand a loaded long video or playlist. Show chunk length or lesson durations and a few rows."},
+      {"path":"routine/routine_1.png","label":"Make it your routine","alt":"Routine editor with weekdays, copy option and a timed activity","fallback":"edit_routine.jpg","capture":"Routine editor with a name, weekday selection, Copy option and an activity showing its area and times."}
+    ]
+  },
+  {
+    "id":"reminders","label":"Reminders","eyebrow":"REMEMBER WHERE IT MATTERS.",
+    "headline":"Walk in. Remember why you came.",
+    "description":"Milk at the supermarket. A book at the library. Put the task with the place, so arriving can bring it back to mind.",
+    "steps":["Search a place, tap the map or use your current location.","Name it, choose a radius and save. Attach a reminder to it.","Get an arrival alert. Tick the task when it is done."],
+    "benefits":["Choose the actual place on a map, not just an address in a note.","An unfinished task stays attached to its place.","Repeat nudges help while you are there, until completion or exit."],
+    "details":["Separate Locations and Reminders tabs","Place search with suggestions","Tap the map or drag the pin to choose coordinates","Use your current position; zoom and recenter","Choose a 100, 150, 250 or 500 metre radius","Save a location name and address","Save your current location as Home","Attach several tasks to the same place","Search, edit, complete, undo and delete reminders","Arrival alerts and local repeat reminders","Permission and battery guidance in Settings; delivery depends on Android"],
+    "captures":[
+      {"path":"reminders/reminders_1.png","label":"Places you return to","alt":"Locations tab with saved Library and Supermarket places","capture":"Locations tab with 2-3 public places. Do not show your real home address."},
+      {"path":"reminders/reminders_2.png","label":"Choose it on the map","alt":"Add Location map with a selected place, pin, radius and Save","capture":"After searching a public library or supermarket: visible pin and circle, name, radius and Save. Dismiss the keyboard."},
+      {"path":"reminders/reminders_3.png","label":"A task with a place","alt":"Reminders linked to their saved locations","capture":"Reminders tab: 'Pick up the reserved book' at Library and 'Buy milk' at Supermarket. Show an unfinished and a completed task."}
+    ]
+  },
+  {
+    "id":"settings","label":"Settings","eyebrow":"YOUR SYSTEM. YOUR PREFERENCES.",
+    "headline":"Make it feel like your app.",
+    "description":"Choose your theme, set how early block alerts arrive, and keep a backup of the routines you have built. The useful controls, in one place.",
+    "steps":["Set your name, photo and light or dark theme.","Allow notifications; enable location access for arrival reminders.","Check your latest backup or tap Back Up Now."],
+    "benefits":["Choose the heads-up you need before activities start and end.","Keep your saved day available even when you lose signal.","Restore backed-up work when you sign in again."],
+    "details":["Profile name and photo","Light and dark appearance","Notification permission and sound","Separate start and end reminder offsets","Location permission, geofencing and Android settings shortcuts","Optional battery and repeat-timing guidance","Help mirroring phone notifications to a watch","Online/offline status and last backup time","Automatic backup every five minutes while online and the app is active","Manual backup; retry and catch-up after reconnecting","Sign out and one active device per account"],
+    "captures":[
+      {"path":"settings/settings_1.png","label":"Make it yours","alt":"Settings with profile, appearance and notification preferences","fallback":"settings.jpg","capture":"Top of Settings with a demo profile, theme and notification controls. Hide personal email/photo details."},
+      {"path":"settings/settings_2.png","label":"Keep your work safe","alt":"Settings with location setup and backup status","fallback":"settings_down.jpg","capture":"Lower Settings with location setup or Backup & Sync, a successful backup time and auto-backup description."}
+    ]
+  },
+  {
+    "id":"welcome","label":"Sign in","eyebrow":"START SMALL. MAKE IT YOURS.",
+    "headline":"One email code. Your own space.",
+    "description":"You do not need a perfect system to begin. Sign in, add one area, and make a short routine for a day you recognize.",
+    "steps":["Enter your email and request a sign-in code.","Enter the six-digit code from your inbox.","Start in Library with one area and a simple routine."],
+    "benefits":["No new password to remember.","Your backed-up data belongs to your account.","Start with just a few activities and build from there."],
+    "details":["Email-code sign-in","Account-based backup and restore","One active device per account","Onboarding and screen-by-screen help","Local access to saved data after sign-in"],
+    "captures":[
+      {"path":"welcome/welcome_1.png","label":"A place to begin","alt":"RoutineOS email-code sign-in screen","fallback":"sgin_in.jpg","capture":"Email sign-in screen before entering any private email or code."}
+    ]
+  }
+]

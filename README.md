@@ -1,6 +1,15 @@
-# RoutineOS website
+# RoutineOS landing page
 
-A dark product showcase built with Next.js 15, React 18, Tailwind CSS and Motion. Local Satoshi / Space Grotesk fonts, subtle grids, scroll parallax, responsive navigation and an interactive six-screen tour.
+A responsive dark product showcase for RoutineOS: the anti-productivity productivity app that helps people build reusable routines, lock a day, follow the next step and remember tasks when they arrive at a place.
+
+<p align="center">
+  <a href="https://github.com/san2722soni/RoutineOs/releases/download/v1.0.0/app-release.apk"><strong>Download the Android APK</strong></a>
+  · <a href="https://github.com/san2722soni/RoutineOs">Mobile app repository</a>
+</p>
+
+The site explains the simple model: **Area** groups a priority, **Routine** gives it a reusable schedule, **Plan** prepares one specific day, and **Today** helps you execute it. It also showcases map-based location reminders, learning videos, backup and notification settings.
+
+The downloadable guide is available at [`public/assets/guide/routineos-quick-guide.pdf`](public/assets/guide/routineos-quick-guide.pdf).
 
 ## Run
 
@@ -10,6 +19,18 @@ npm run dev
 npm run build
 npm start
 ```
+
+## Deploy on Vercel
+
+Import this `Frontend` folder as a Vercel project. The framework is detected as Next.js and the default build command is `npm run build`.
+
+Add this environment variable in Vercel Project Settings:
+
+```env
+NEXT_PUBLIC_APP_DOWNLOAD_URL=https://github.com/san2722soni/RoutineOs/releases/download/v1.0.0/app-release.apk
+```
+
+Redeploy after changing the APK release or replacing screenshots. The APK buttons are visible even before this variable is configured, but remain disabled with a clear coming-soon label.
 
 ## Edit
 
@@ -28,8 +49,8 @@ npm start
 - `scripts/build-guide.py`: regenerate the eight-page PDF with `npm run guide`.
 - `public/legal/`: privacy and terms copied from the existing legal site.
 
-Download APK buttons stay visible but disabled with a coming-soon state until a download destination is provided. Set `NEXT_PUBLIC_APP_DOWNLOAD_URL` in `.env.local` when your APK URL is ready, then rebuild.
+For local development, put the same variable in `.env.local` when you want the download buttons active. The current release URL is the GitHub asset above; future releases only require changing the version in this variable.
 
 See [SCREENSHOTS.md](SCREENSHOTS.md) for all 16 filenames, capture instructions, APK setup and PDF regeneration.
 
-No signup service or invented store link is configured. The page is statically prerendered; navigation, splash, tour and parallax use client-side JavaScript. Rebuild after adding media or changing environment variables.
+The page is statically prerendered; navigation, splash, tour and parallax use client-side JavaScript. No signup service or fabricated store listing is configured. Rebuild after adding media or changing environment variables.
